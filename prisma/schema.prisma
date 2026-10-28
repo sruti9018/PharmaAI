@@ -1,0 +1,90 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Medicine {
+  id              String             @id @default(cuid())
+  name            String
+  rfidUid         String             @unique
+  shelfLocation   String
+  unitWeightGrams Float
+  minStockCount   Int
+  expiryDate      DateTime
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @default(now()) @updatedAt
+  stockLogs       StockLog[]
+  prescriptionItems PrescriptionItem[]
+}
+
+model StockLog {
+  id          String   @id @default(cuid())
+  medicineId  String
+  weightGrams Float
+  count       Int
+  createdAt   DateTime @default(now())
+  medicine    Medicine @relation(fields: [medicineId], references: [id], onDelete: Cascade)
+}
+
+model Prescription {
+  id             String             @id @default(cuid())
+  imageUrl       String
+  extractedText  String
+  status         String             @default("PENDING") // PENDING | APPROVED | REJECTED
+  pharmacistNote String?
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @default(now()) @updatedAt
+  items          PrescriptionItem[]
+}
+
+model PrescriptionItem {
+  id                String       @id @default(cuid())
+  prescriptionId    String
+  extractedName     String
+  matchedMedicineId String?
+  inStock           Boolean      @default(false)
+  prescription      Prescription @relation(fields: [prescriptionId], references: [id], onDelete: Cascade)
+  matchedMedicine   Medicine?    @relation(fields: [matchedMedicineId], references: [id], onDelete: SetNull)
+}
+
+model Patient {
+  id            String         @id @default(cuid())
+  name          String
+  phone         String
+  createdAt     DateTime       @default(now())
+  sharedRecords SharedRecord[]
+}
+
+model SharedRecord {
+  id         String    @id @default(cuid())
+  patientId  String
+  contents   String    // JSON encoded records
+  token      String    @unique
+  otp        String?   // optional pharmacist access verification PIN
+  expiresAt  DateTime
+  accessedAt DateTime?
+  createdAt  DateTime  @default(now())
+  patient    Patient   @relation(fields: [patientId], references: [id], onDelete: Cascade)
+}
+
+model Alert {
+  id         String   @id @default(cuid())
+  type       String   // "LOW_STOCK" | "EXPIRING_SOON" | "HARDWARE" | "PRESCRIPTION"
+  severity   String   @default("warning") // "info" | "warning" | "destructive"
+  title      String
+  message    String
+  medicineId String?
+  read       Boolean  @default(false)
+  createdAt  DateTime @default(now())
+}
+
+model HardwareState {
+  id        String   @id // e.g. "latest_rfid_scan", "system_settings"
+  value     String   // JSON string
+  updatedAt DateTime @updatedAt
+}

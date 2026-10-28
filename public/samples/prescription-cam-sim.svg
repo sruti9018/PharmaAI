@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%">
+  <rect width="600" height="800" fill="#fdfbf7" rx="8"/>
+  <rect x="20" y="20" width="560" height="760" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="6 4"/>
+  <!-- Clinic Header -->
+  <text x="300" y="70" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#0f766e" text-anchor="middle">ST. JUDE MEDICAL CENTER</text>
+  <text x="300" y="95" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">Department of Internal Medicine • 404 Health Ave, Suite 200</text>
+  <text x="300" y="115" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">Phone: (555) 019-2834 • DEA#: BK9283411</text>
+  <line x1="40" y1="135" x2="560" y2="135" stroke="#0d9488" stroke-width="2"/>
+  
+  <!-- Patient Info -->
+  <text x="50" y="170" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">Patient: Eleanor Vance</text>
+  <text x="400" y="170" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Date: 2026-10-28</text>
+  <text x="50" y="195" font-family="Arial, sans-serif" font-size="14" fill="#64748b">DOB: 1984-06-14 (Age 42)</text>
+  <text x="400" y="195" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Rx ID: #RX-89421</text>
+  <line x1="40" y1="215" x2="560" y2="215" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Rx symbol -->
+  <text x="50" y="275" font-family="Georgia, serif" font-size="48" font-style="italic" font-weight="bold" fill="#0f766e">℞</text>
+
+  <!-- Medication 1 -->
+  <text x="110" y="270" font-family="'Courier New', Courier, monospace" font-size="18" font-weight="bold" fill="#0f172a">Amoxicillin 500mg Caps #30</text>
+  <text x="110" y="295" font-family="'Courier New', Courier, monospace" font-size="15" fill="#334155">Sig: Take 1 capsule TID by mouth with food</text>
+  <text x="110" y="320" font-family="'Courier New', Courier, monospace" font-size="15" fill="#334155">Duration: 10 days (Finish full course)</text>
+
+  <!-- Medication 2 -->
+  <text x="110" y="380" font-family="'Courier New', Courier, monospace" font-size="18" font-weight="bold" fill="#0f172a">Paracetamol 500mg Tabs #20</text>
+  <text x="110" y="405" font-family="'Courier New', Courier, monospace" font-size="15" fill="#334155">Sig: 1-2 tablets PO every 6 hours PRN fever/pain</text>
+  <text x="110" y="430" font-family="'Courier New', Courier, monospace" font-size="14" fill="#64748b">Do not exceed 4,000mg / 24 hours</text>
+
+  <!-- Divider -->
+  <line x1="60" y1="480" x2="540" y2="480" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Doctor Notes -->
+  <text x="60" y="520" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#475569">Clinical Indications:</text>
+  <text x="60" y="545" font-family="Arial, sans-serif" font-size="13" fill="#64748b">Acute bacterial upper respiratory infection. Refills: 0 (Zero).</text>
+  <text x="60" y="570" font-family="Arial, sans-serif" font-size="13" fill="#64748b">Allergies checked: Penicillin allergy warning noted by system.</text>
+
+  <!-- Watermark badge -->
+  <rect x="50" y="620" width="180" height="40" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
+  <text x="140" y="645" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#166534" text-anchor="middle">ESP32-CAM CAPTURED</text>
+
+  <!-- Signature line -->
+  <line x1="340" y1="670" x2="540" y2="670" stroke="#334155" stroke-width="1.5"/>
+  <text x="360" y="660" font-family="'Brush Script MT', cursive, sans-serif" font-size="28" fill="#1e3a8a">Dr. Arthur Bell, MD</text>
+  <text x="440" y="690" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Physician Signature &amp; License</text>
+</svg>
